@@ -206,6 +206,44 @@
   <p>Herramienta modular 3 en 1: Pala, Pico y Rastrillo</p>
 </header>
 
+  <!-- Buscador de productos -->
+<div class="buscador" style="text-align: center; padding: 20px; background: white;">
+  <input type="text" id="busqueda" placeholder="Buscar repuesto o herramienta..." onkeyup="filtrarProductos()" style="width: 80%; max-width: 400px; padding: 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 1em;" />
+</div>
+
+<!-- Catálogo de productos -->
+<div class="catalogo" id="catalogo" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+
+  <div class="producto" style="background: white; border-radius: 10px; width: 240px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; padding: 15px;">
+    <img src="herramienta.png" alt="TOOLMEX 3 en 1" style="width: 100%; border-radius: 10px;">
+    <h3 style="color: #004aad; margin: 10px 0 5px;">TOOLMEX 3 en 1</h3>
+    <p>$1,445 MXN</p>
+    <a href="#formulario" class="cta-button" style="background-color: #ffaa00; color: white; padding: 8px 16px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none;">Comprar</a>
+  </div>
+
+  <div class="producto" style="background: white; border-radius: 10px; width: 240px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; padding: 15px;">
+    <img src="repuesto-pala.jpg" alt="Cabezal Pala" style="width: 100%; border-radius: 10px;">
+    <h3 style="color: #004aad; margin: 10px 0 5px;">Cabezal de Pala</h3>
+    <p>$200 MXN</p>
+    <a href="#formulario" class="cta-button" style="background-color: #ffaa00; color: white; padding: 8px 16px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none;">Solicitar</a>
+  </div>
+
+  <div class="producto" style="background: white; border-radius: 10px; width: 240px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; padding: 15px;">
+    <img src="repuesto-pico.jpg" alt="Cabezal Pico" style="width: 100%; border-radius: 10px;">
+    <h3 style="color: #004aad; margin: 10px 0 5px;">Cabezal de Pico</h3>
+    <p>$200 MXN</p>
+    <a href="#formulario" class="cta-button" style="background-color: #ffaa00; color: white; padding: 8px 16px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none;">Solicitar</a>
+  </div>
+
+  <div class="producto" style="background: white; border-radius: 10px; width: 240px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; padding: 15px;">
+    <img src="repuesto-rastrillo.jpg" alt="Cabezal Rastrillo" style="width: 100%; border-radius: 10px;">
+    <h3 style="color: #004aad; margin: 10px 0 5px;">Cabezal de Rastrillo</h3>
+    <p>$200 MXN</p>
+    <a href="#formulario" class="cta-button" style="background-color: #ffaa00; color: white; padding: 8px 16px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none;">Solicitar</a>
+  </div>
+
+</div>
+
 <section data-aos="fade-up">
   <h2>TOOLMEX: Solución 3 en 1</h2>
   <p>¡Menos peso, menos gasto, más utilidad! Descubre por qué TOOLMEX revoluciona el mercado.</p>
@@ -345,6 +383,22 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
   AOS.init();
+</script>
+
+  <script>
+  function filtrarProductos() {
+    let input = document.getElementById("busqueda").value.toLowerCase();
+    let productos = document.querySelectorAll(".producto");
+
+    productos.forEach(producto => {
+      let nombre = producto.querySelector("h3").innerText.toLowerCase();
+      if (nombre.includes(input)) {
+        producto.style.display = "block";
+      } else {
+        producto.style.display = "none";
+      }
+    });
+  }
 </script>
 
 </body>
